@@ -1,0 +1,14 @@
+<% provide(:title, "Home") %>
+<div class="center jumbotron" ,style="background-color:#D9EDF7">
+<div id="notice"><%= notice %></div>
+<% if logged_in? %>
+    <h> you are currently login </h>
+    <%= link_to "Log out", logout_path, method: "delete" %>
+<%else%>
+<h1>Welcome</h1>
+      <p>
+Already have account? <%= link_to 'SignIn' , login_path ,class: "btn btn-lg btn-primary"%><br/>
+      </p>
+<p>New User? <%= link_to 'SignUp' , new_user_path ,class: "btn btn-lg btn-primary" %></p>
+<%end%>
+    </div>

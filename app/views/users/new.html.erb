@@ -1,0 +1,42 @@
+
+<% provide(:title, 'Sign up') %>
+
+<div class="container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+      <div class="panel-heading">
+        <div class="panel-title">Sign In</div>
+
+        <div style="padding-top:30px" class="panel-body" >
+
+          <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+  <%= form_for(@user ) do |f| %>
+        <%= render 'shared/error_message' %>
+              <div style="margin-bottom: 25px" class="input-group">
+
+                <%= f.label :name %>
+        <%= f.text_field :name ,class: "form-control"%><br/>
+                </div>
+              <div style="margin-bottom: 25px" class="input-group">
+
+        <%= f.label :email %>
+        <%= f.text_field :email ,class: "form-control" , :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %><br/>
+                </div>
+              <div style="margin-bottom: 25px" class="input-group">
+
+                <%= f.label :password %>
+        <%= f.password_field :password ,class: "form-control"%><br/>
+                </div>
+              <div style="margin-bottom: 25px" class="input-group">
+
+                <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation ,class: "form-control" %><br/>
+                </div>
+         <%= f.submit "Create my account" ,class: "btn btn-primary"%>
+    <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

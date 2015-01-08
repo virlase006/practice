@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %> | Sample App</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js" %>
+  <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" %>
+  <%= javascript_include_tag "jquery-1.6.2.min.js" %>
+  <%= javascript_include_tag "jquery.validate.js" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="jquery.validate.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $("#login").validate({
+              rules: {
+
+                  "session[email]":{
+                      required: true,
+                      email: true
+                  },
+                  "session[password]":{
+                      required: true,
+                      minlength: 6
+                  }
+
+              },
+              messages: {
+
+                  "session[email]":{
+                      required: "Email can not be empty",
+                      email: "A valid email address is required"
+                  },
+                  "session[password]":{
+                      required: "Password Cant not Be Empty",
+                      minlength: "Min Length is 6 characters"
+                  }
+
+              }
+          });
+      });
+  </script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $(".edit_user").validate({
+              rules: {
+                  "user[username]":{
+                      required: true,
+                      minlength: 3
+                  },
+                  "user[email]":{
+                      required: true,
+                      email: true
+                  },
+                  "user[password]":{
+                      required: true,
+                      minlength: 7
+                  },
+                  "user[password_confirmation]":{
+                      required: true,
+                      minlength: 7,
+                      equalTo: "#user_password"
+                  }
+              },
+              messages: {
+                  "user[username]":{
+                      required: "Required",
+                      minlength: "Min Length is 3 characters"
+                  },
+                  "user[email]":{
+                      required: "Required",
+                      email: "A valid email address is required"
+                  },
+                  "user[password]":{
+                      required: "Required",
+                      minlength: "Min Length is 7 characters"
+                  },
+                  "user[password_confirmation]":{
+                      required: "Required",
+                      minlength: "Min Length is 7 characters",
+                      equalTo: "New Password Doesn't Match"
+                  }
+              }
+          });
+      });
+  </script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $("#new_user").validate({
+              rules: {
+                  "user[username]":{
+                      required: true,
+                      minlength: 3
+                  },
+                  "user[email]":{
+                      required: true,
+                      email: true
+                  },
+                  "user[password]":{
+                      required: true,
+                      minlength: 7
+                  },
+                  "user[password_confirmation]":{
+                      required: true,
+                      minlength: 7,
+                      equalTo: "#user_password"
+                  }
+              },
+              messages: {
+                  "user[username]":{
+                      required: "Required",
+                      minlength: "Min Length is 3 characters"
+                  },
+                  "user[email]":{
+                      required: "Required",
+                      email: "A valid email address is required"
+                  },
+                  "user[password]":{
+                      required: "Required",
+                      minlength: "Min Length is 7 characters"
+                  },
+                  "user[password_confirmation]":{
+                      required: "Required",
+                      minlength: "Min Length is 7 characters",
+                      equalTo: "New Password Doesn't Match"
+                  }
+              }
+          });
+      });
+  </script>
+</head>
+<body>
+<div class="container">
+
+<%= yield %>
+</div>
+
+</body>
+</html>
